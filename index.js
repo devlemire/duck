@@ -20,7 +20,7 @@ app.post('/api/duck', (req, res) => {
   if (req.body.challenge) {
     res.send(req.body.challenge)
   } else {
-    res.send(text)
+    res.send(payload.text)
   }
 })
 
