@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname })
+require('dotenv').config({ path: `${__dirname}/.env` })
 const { SERVER_PORT } = process.env
 const express = require('express')
 const figlet = require('figlet')
