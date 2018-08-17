@@ -2,10 +2,17 @@ require('dotenv').config({ path: `${__dirname}/.env` })
 const { SERVER_PORT } = process.env
 const express = require('express')
 const figlet = require('figlet')
+const bodyParser = require('body-parser')
 
 const app = express()
 
 app.use(express.json())
+app.use(
+  bodyParser.urlencoded({
+    // to support URL-encoded bodies
+    extended: true
+  })
+)
 
 app.post('/api/duck', (req, res) => {
   const payload = req.body
