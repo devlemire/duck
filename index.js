@@ -15,6 +15,10 @@ app.post('/api/duck', (req, res) => {
   res.sendStatus(200)
 })
 
+app.get('*', (req, res) => {
+  res.send('Send a post request to /api/duck')
+})
+
 app.listen(async () => {
   console.log(`Server listening on port ${SERVER_PORT}.`)
   figlet('Duck Online', (err, data) => {
