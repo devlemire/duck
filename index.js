@@ -17,6 +17,8 @@ app.use(
 app.post('/api/duck', (req, res) => {
   const payload = req.body
 
+  console.log('Incoming duck:', payload)
+
   if (req.body.challenge) {
     res.send(req.body.challenge)
   } else {
