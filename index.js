@@ -15,6 +15,15 @@ app.post('/api/duck', (req, res) => {
   res.sendStatus(200)
 })
 
+app.post('/api/duck/:challenge', (req, res) => {
+  const payload = req.body
+  const { challenge } = req.params
+
+  console.log('incoming payload:', payload)
+
+  res.send({ challenge })
+})
+
 app.get('*', (req, res) => {
   res.send({
     available_endpoints: {
