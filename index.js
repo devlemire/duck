@@ -16,10 +16,14 @@ app.post('/api/duck', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.send('Send a post request to /api/duck')
+  res.send({
+    available_endpoints: {
+      '/api/duck': ['POST']
+    }
+  })
 })
 
-app.listen(async () => {
+app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}.`)
   figlet('Duck Online', (err, data) => {
     console.log(data)
