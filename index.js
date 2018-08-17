@@ -13,7 +13,7 @@ app.post('/api/duck', (req, res) => {
   console.log('incoming payload:', payload)
 
   if (req.body.challenge) {
-    res.send(challenge)
+    res.send(req.body.challenge)
   } else {
     res.sendStatus(200)
   }
