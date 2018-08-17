@@ -5,7 +5,15 @@ const figlet = require('figlet')
 
 const app = express()
 
-app.post('/api/duck', (req, res) => {})
+app.use(express.json())
+
+app.post('/api/duck', (req, res) => {
+  const payload = req.body
+
+  console.log('incoming payload:', payload)
+
+  res.sendStatus(200)
+})
 
 app.listen(async () => {
   console.log(`Server listening on port ${SERVER_PORT}.`)
