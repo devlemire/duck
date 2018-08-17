@@ -12,16 +12,11 @@ app.post('/api/duck', (req, res) => {
 
   console.log('incoming payload:', payload)
 
-  res.sendStatus(200)
-})
-
-app.post('/api/duck/:challenge', (req, res) => {
-  const payload = req.body
-  const { challenge } = req.params
-
-  console.log('incoming payload:', payload)
-
-  res.send({ challenge })
+  if (req.body.challenge) {
+    res.send(challenge)
+  } else {
+    res.sendStatus(200)
+  }
 })
 
 app.get('*', (req, res) => {
