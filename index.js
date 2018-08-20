@@ -3,7 +3,7 @@ const { SERVER_PORT } = process.env
 const express = require('express')
 const figlet = require('figlet')
 const bodyParser = require('body-parser')
-const moment = require('moment-timezone')
+const moment = require('moment')
 
 const app = express()
 
