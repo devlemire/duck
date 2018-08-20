@@ -3,6 +3,7 @@ const { SERVER_PORT } = process.env
 const express = require('express')
 const figlet = require('figlet')
 const bodyParser = require('body-parser')
+const moment = require('moment-timezone')
 
 const app = express()
 
@@ -17,7 +18,9 @@ app.use(
 app.post('/api/duck', (req, res) => {
   const payload = req.body
 
-  console.log('Incoming duck:', payload)
+  console.log(`***** ${moment.utc().format('MM/DD/YYYY hh:mm a')} (UTC) *****`)
+  console.log('User:', payload.user_name)
+  console.log('Text:', payload.text)
 
   if (req.body.challenge) {
     res.send(req.body.challenge)
